@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+// import { useActionState } from "react";
 
-type Todo = { id: number; text: string };
+export type Todo = { id: number; text: string };
 
-// ── STARTER: hand-rolled fetch to API route ─────────────────────────────────
-// Live demo: replace with a Server Action ('use server', revalidatePath).
+// ── OLD: Server Actions ─────
 
 export function TodoForm() {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -64,16 +64,44 @@ export function TodoForm() {
   );
 }
 
-// ── TARGET (Server Action) — build this live in page.tsx or here ────────────
-//
-// import { useActionState } from "react";
-//
+// ── NEW: Server Actions ─────
+
+// type FormState = { todos: Todo[] };
+
 // type AddTodoAction = (
-//   prev: { todos: Todo[] },
+//   prev: FormState,
 //   formData: FormData,
-// ) => Promise<{ todos: Todo[] }>;
-//
+// ) => Promise<FormState>;
+
 // export function TodoForm({ action }: { action: AddTodoAction }) {
 //   const [state, formAction, pending] = useActionState(action, { todos: [] });
-//   ...
+
+//   return (
+//     <div className="space-y-4">
+//       <form action={formAction} className="flex gap-3">
+//         <input
+//           name="text"
+//           type="text"
+//           placeholder="Add a todo…"
+//           required
+//           className="flex-1 rounded border border-[var(--accent)] bg-white px-4 py-3 text-lg"
+//         />
+//         <button
+//           type="submit"
+//           disabled={pending}
+//           className="rounded bg-[var(--accent)] px-6 py-3 font-medium text-white disabled:opacity-50"
+//         >
+//           {pending ? "Adding…" : "Add"}
+//         </button>
+//       </form>
+
+//       <ul className="space-y-2">
+//         {state.todos.map((todo) => (
+//           <li key={todo.id} className="demo-card text-lg">
+//             {todo.text}
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
 // }

@@ -1,5 +1,12 @@
+"use client";
+
+import dynamic from "next/dynamic";
 import { Suspense } from "react";
-import { UseHookDemo } from "./use-hook-demo";
+
+const UseHookDemo = dynamic(
+  () => import("./use-hook-demo").then((m) => m.UseHookDemo),
+  { ssr: false },
+);
 
 export default function UseHookPage() {
   return (
@@ -9,9 +16,8 @@ export default function UseHookPage() {
 
       <div className="demo-callout">
         <p>
-          Edit <code>app/use-hook/use-hook-demo.tsx</code> — rewrite the active{" "}
-          <code>useEffect</code> + <code>useState</code> block into the
-          commented <code>use()</code> pattern below it.
+          Edit <code>app/use-hook/use-hook-demo.tsx</code> — swap the OLD and
+          NEW blocks.
         </p>
       </div>
 

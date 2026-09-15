@@ -8,11 +8,10 @@ export default function ProxyPage() {
 
       <div className="demo-callout">
         <p>
-          <code>middleware.ts</code> at the project root injects a header on
-          requests to <code>/proxy/destination</code>. Live demo: rename the
-          file to <code>proxy.ts</code> and change{" "}
-          <code>export function middleware</code> to{" "}
-          <code>export function proxy</code>.
+          Root <code>middleware.ts</code> injects <code>x-demo-proxy</code> on
+          requests to <code>/proxy/destination</code>. In Next.js 16 this
+          convention is renamed to <code>proxy.ts</code> with an exported{" "}
+          <code>proxy</code> function — same matcher, same behavior.
         </p>
       </div>
 

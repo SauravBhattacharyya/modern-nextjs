@@ -21,8 +21,8 @@ export default async function ProxyDestinationPage() {
 
       {proxyHeader === "active" ? (
         <p className="demo-callout">
-          Header was injected by middleware.ts (soon proxy.ts) — the proxy is
-          working.
+          Header was injected at the network boundary — middleware.ts (proxy.ts
+          in Next.js 16) is working.
         </p>
       ) : (
         <p className="demo-callout">

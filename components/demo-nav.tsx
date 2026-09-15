@@ -13,7 +13,6 @@ const demos = [
   { href: "/caching", label: "Caching: 15 → 16" },
   { href: "/cache-components-ppr", label: "Cache Components & PPR" },
   { href: "/instant-navigations", label: "Instant Navigations" },
-  { href: "/proxy", label: "proxy.ts" },
 ];
 
 export function DemoNav() {

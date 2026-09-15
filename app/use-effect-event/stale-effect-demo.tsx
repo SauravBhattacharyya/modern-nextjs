@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
 
 // ── ACTIVE: buggy effect with stale closure ─────────────────────────────────
-// Fix live by replacing with useEffectEvent (commented block below).
+
+import { useEffect, useState } from "react";
 
 export function StaleEffectDemo() {
   const [count, setCount] = useState(0);
@@ -43,28 +43,28 @@ export function StaleEffectDemo() {
   );
 }
 
-// ── FIX with useEffectEvent — uncomment during live demo ──────────────────────
+// ── FIX with useEffectEvent  ──────────────────────
 //
 // import { useEffect, useEffectEvent, useState } from "react";
-//
+
 // export function StaleEffectDemo() {
 //   const [count, setCount] = useState(0);
 //   const [logs, setLogs] = useState<string[]>([]);
-//
+
 //   const onTick = useEffectEvent(() => {
 //     const entry = `[interval] count prop is ${count} (fresh!)`;
 //     console.log(entry);
 //     setLogs((prev) => [...prev.slice(-4), entry]);
 //   });
-//
+
 //   useEffect(() => {
 //     const interval = setInterval(() => {
 //       onTick();
 //     }, 2000);
-//
+
 //     return () => clearInterval(interval);
 //   }, []);
-//
+
 //   return (
 //     <div className="space-y-4">
 //       <p className="text-2xl">
